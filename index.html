@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Свадьба Шарофжон и Мадинахон | 11 июля 2026">
+    <title>Наша Свадьба | Шарофжон & Мадинахон</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Аудиоплеер -->
+    <audio id="backgroundMusic" loop preload="auto" autoplay muted>
+        <source src="https://raw.githubusercontent.com/sharofjans05-debug/wedding-invitation/daff7bfec97f1160ddc5e615cbf0ec102f2aa9c1/michael-hunter-cold.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Кнопка музыки -->
+    <button id="musicToggle" class="music-toggle" title="Включить/выключить музыку">
+        <span class="music-icon">🎵</span>
+    </button>
+
+    <!-- МОДАЛЬНОЕ ПРИГЛАШЕНИЕ -->
+    <div id="invitationModal" class="invitation-modal">
+        <div class="invitation-modal-content">
+            <button id="closeModalBtn" class="close-modal-btn" title="Закрыть">✕</button>
+            <div class="invitation-card">
+                <div class="invitation-header">
+                    <h2 class="invitation-title">С любовью приглашаем вас</h2>
+                    <div class="invitation-decoration">✨</div>
+                </div>
+
+                <div class="invitation-body">
+                    <p class="invitation-couple">Шарофжон <span class="ampersand">&</span> Мадинахон</p>
+                    
+                    <p class="invitation-text">
+                        Мы с нетерпением ждёмся того дня, когда сможем разделить с вами нашу радость 
+                        и самый счастливый момент нашей жизни.
+                    </p>
+
+                    <p class="invitation-closing">
+                        Ваше присутствие — наше счастье! ❤️
+                    </p>
+                </div>
+
+                <button id="closeInvitationBtn" class="invitation-button">
+                    <span class="btn-icon">🎉</span>
+                    Посмотреть приглашение
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ГЛАВНЫЙ ЭКРАН -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <h1 class="hero-names">Шарофжон <span class="ampersand">&</span> Мадинахон</h1>
+            <p class="hero-subtitle">С радостью приглашаем вас разделить с нами самый счастливый день нашей жизни</p>
+            
+            <div class="hero-buttons">
+                <button class="btn btn-primary" id="dateBtn">
+                    <span class="btn-icon">📅</span>
+                    <span>11 июля 2026 • 18:00</span>
+                </button>
+                <button class="btn btn-secondary" id="detailsBtn">
+                    Перейти к деталям
+                    <span class="arrow">↓</span>
+                </button>
+            </div>
+        </div>
+
+        <div class="scroll-indicator">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </section>
+
+    <!-- ОБРАТНЫЙ ОТСЧЁТ -->
+    <section class="countdown-section" id="countdownSection">
+        <div class="section-title">
+            <h2>До великого дня</h2>
+        </div>
+        
+        <div class="countdown">
+            <div class="countdown-item">
+                <div class="countdown-value" id="days">0</div>
+                <div class="countdown-label">Дни</div>
+            </div>
+            <div class="countdown-separator">:</div>
+            <div class="countdown-item">
+                <div class="countdown-value" id="hours">0</div>
+                <div class="countdown-label">Часы</div>
+            </div>
+            <div class="countdown-separator">:</div>
+            <div class="countdown-item">
+                <div class="countdown-value" id="minutes">0</div>
+                <div class="countdown-label">Минуты</div>
+            </div>
+            <div class="countdown-separator">:</div>
+            <div class="countdown-item">
+                <div class="countdown-value" id="seconds">0</div>
+                <div class="countdown-label">Секунды</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ДЕТАЛИ ТОРЖЕСТВА -->
+    <section class="details-section" id="detailsSection">
+        <div class="section-title">
+            <h2>Детали торжества</h2>
+        </div>
+
+        <div class="details-grid">
+            <div class="detail-card">
+                <div class="detail-icon">📅</div>
+                <h3>Дата</h3>
+                <p>11 июля 2026</p>
+            </div>
+
+            <div class="detail-card">
+                <div class="detail-icon">⏰</div>
+                <h3>Время начала</h3>
+                <p>18:00</p>
+            </div>
+
+            <div class="detail-card">
+                <div class="detail-icon">📍</div>
+                <h3>Место проведения</h3>
+                <p>Москва<br>Востряковский<br>проезд, 23к2</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- МЕСТО ПРОВЕДЕНИЯ -->
+    <section class="location-section" id="locationSection">
+        <div class="section-title">
+            <h2>Место проведения</h2>
+        </div>
+
+        <div class="map-container">
+            <div id="map" style="width: 100%; height: 500px; border-radius: 20px; overflow: hidden;"></div>
+        </div>
+
+        <div class="location-description">
+            <p>Москва, Востряковский проезд, 23к2</p>
+        </div>
+
+        <button class="btn btn-primary btn-full" id="routeBtn">
+            <span class="btn-icon">🗺</span>
+            <span>Построить маршрут</span>
+        </button>
+    </section>
+
+    <!-- ФОТОГРАФИИ ГОСТЕЙ -->
+    <section class="gallery-section" id="gallerySection">
+        <div class="section-title">
+            <h2>Поделитесь фотографиями</h2>
+        </div>
+
+        <p class="gallery-subtitle">Нам будет очень приятно увидеть праздник вашими глазами. Делитесь фотографиями и сохраняйте самые яркие моменты этого счастливого дня</p>
+
+        <div class="gallery-upload-container">
+            <!-- Форма загрузки (видна только в дозволенный период) -->
+            <div id="uploadForm" class="upload-form" style="display: none;">
+                <div class="upload-area" id="uploadArea">
+                    <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="17 8 12 3 7 8"></polyline>
+                        <line x1="12" y1="3" x2="12" y2="15"></line>
+                    </svg>
+                    <h3>Загрузите фотографии</h3>
+                    <p>или перетащите их сюда</p>
+                    <input type="file" id="photoInput" multiple accept="image/*" style="display: none;">
+                </div>
+
+                <div class="preview-gallery" id="previewGallery"></div>
+
+                <div class="upload-actions">
+                    <button class="btn btn-primary" id="submitPhotosBtn">
+                        <span class="btn-icon">📤</span>
+                        <span>Отправить фотографии</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Сообщение до даты свадьбы -->
+            <div id="beforeMessage" class="status-message">
+                <div class="message-content">
+                    <h3>📷 Скоро откроется загрузка</h3>
+                    <p>Форма для загрузки фотографий откроется <strong>11 июля 2026</strong> в 00:00</p>
+                </div>
+            </div>
+
+            <!-- Сообщение после срока загрузки -->
+            <div id="afterMessage" class="status-message" style="display: none;">
+                <div class="message-content">
+                    <h3>❤️ Спасибо!</h3>
+                    <p>Приём фотографий завершён. Спасибо, что разделили этот прекрасный день вместе с нами ❤️</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ЗАВЕРШЕНИЕ -->
+    <section class="closing-section" id="closingSection">
+        <h2 class="closing-title">Спасибо, что разделили с нами<br>этот прекрасный день</h2>
+        
+        <p class="closing-names">Шарофжон <span class="ampersand">&</span> Мадинахон</p>
+
+        <div class="closing-decoration">
+            <span>❤️</span>
+        </div>
+    </section>
+
+    <!-- Скрипт Яндекс.Карт -->
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=a2d16d0d-61a2-4cd8-a4e7-dd99e8e8006f&lang=ru_RU"></script>
+    
+    <!-- Основной скрипт -->
+    <script src="script.js"></script>
+</body>
+</html>
