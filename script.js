@@ -2,7 +2,7 @@
 // ОСНОВНЫЕ ПЕРЕМЕННЫЕ
 // ========================================
 
-const weddingDate = new Date('2026-07-11T18:00:00').getTime();
+const weddingDate = new Date('2026-07-11T16:00:00').getTime();
 const uploadStartDate = new Date('2026-07-11T00:00:00').getTime();
 const uploadEndDate = new Date('2026-07-13T23:59:59').getTime();
 
